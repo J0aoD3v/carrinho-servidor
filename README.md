@@ -1,0 +1,1 @@
+# Anotações do Obsidian Exames 2
