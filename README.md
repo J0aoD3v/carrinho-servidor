@@ -1,2 +1,2 @@
 # Anotações do Obsidian
-# Exames 2
+# Exames
