@@ -1,1 +1,2 @@
-# Anotações do Obsidian 2
+# Anotações do Obsidian 0
+1
