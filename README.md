@@ -48,35 +48,34 @@ cd carrinho-servidor
      python3 -m venv venv
      source venv/bin/activate
      ```
-3. Instale as dependências:
-   - Com requirements.txt:
+3. Ative o ambiente virtual (caso ainda não tenha ativado) e instale as dependências:
+   - Windows (PowerShell):
      ```powershell
+     .\venv\Scripts\Activate.ps1
      pip install -r requirements.txt
      ```
-     ou
+   - Ubuntu (Bash):
      ```bash
+     source venv/bin/activate
      pip3 install -r requirements.txt
-     ```
-   - Se não houver requirements.txt:
-     ```powershell
-     pip install flask opencv-python numpy
-     ```
-     ou
-     ```bash
-     pip3 install flask opencv-python numpy
      ```
 
 ---
 
 ## Como rodar
 
-### Servidor (Ubuntu/Linux)
+### Servidor (Windows ou Ubuntu/Linux)
 
 No diretório `server-side`:
 
-```bash
-python3 servidor.py
-```
+- Windows (PowerShell):
+  ```powershell
+  python server-side/servidor.py
+  ```
+- Ubuntu (Bash):
+  ```bash
+  python3 server-side/servidor.py
+  ```
 
 ### Cliente (Windows ou Ubuntu/Linux)
 
@@ -84,22 +83,9 @@ No diretório `client-side`:
 
 - Windows (PowerShell):
   ```powershell
-  python cliente.py
+  python client-side/cliente.py
   ```
 - Ubuntu (Bash):
   ```bash
-  python3 cliente.py
+  python3 client-side/cliente.py
   ```
-
-Se houver um cliente web:
-
-- Windows (PowerShell):
-  ```powershell
-  python cliente_web.py
-  ```
-- Ubuntu (Bash):
-  ```bash
-  python3 cliente_web.py
-  ```
-
-Abra o navegador e acesse o endereço indicado pelo script (ex: http://localhost:porta).
