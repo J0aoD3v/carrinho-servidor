@@ -31,10 +31,12 @@ carrinho-servidor/
 **Pré-requisito:** Python 3.x
 
 1. Clone o repositório:
-   ```bash
-   git clone <url-do-repositorio>
-   cd carrinho-servidor
-   ```
+
+```bash
+git clone https://github.com/J0aoD3v/carrinho-servidor
+cd carrinho-servidor
+```
+
 2. (Opcional) Crie e ative um ambiente virtual:
    - Windows (PowerShell):
      ```powershell
