@@ -20,9 +20,13 @@ carrinho-servidor/
 
 ### Descrição
 
-- `client-side/`: Código do cliente
-- `server-side/`: Código do servidor
-- `README.md`: Documentação
+- `client-side/cliente.py`: Script Python que atua como cliente do sistema. Ele conecta-se ao servidor via TCP para enviar comandos e via UDP para transmitir vídeo da webcam local. Também executa um servidor web Flask para interface de controle e visualização do vídeo em tempo real. Permite enviar comandos ao carrinho e visualizar o log das ações.
+
+- `server-side/servidor.py`: Script Python que atua como servidor do sistema. Ele recebe comandos via TCP e vídeo via UDP do cliente, processando e armazenando os comandos recebidos. Também executa um servidor web Flask para exibir o vídeo recebido do cliente e mostrar o log dos comandos recebidos. Serve como central de controle e monitoramento do carrinho.
+
+- `client-side/`: Pasta com o código do cliente e seus templates web.
+- `server-side/`: Pasta com o código do servidor e seus templates web.
+- `README.md`: Documentação do projeto.
 
 ---
 
