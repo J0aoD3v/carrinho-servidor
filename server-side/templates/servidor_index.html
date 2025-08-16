@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Visualização do Carrinho (Servidor)</title>
+    <style>
+      .container {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+      }
+      .painel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .teclas {
+        font-size: 2em;
+        margin: 20px 0 0 0;
+      }
+      .log {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 300px;
+        height: 200px;
+        overflow-y: auto;
+      }
+      button {
+        font-size: 1.5em;
+        margin: 5px;
+      }
+      .coluna-direita {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+      .info-box {
+        border: 1px solid #aaa;
+        padding: 15px 20px;
+        width: 400px;
+        background: #f9f9f9;
+        text-align: center;
+      }
+      .video-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Visualização do Carrinho (Servidor)</h2>
+    <div class="container">
+      <div class="painel">
+        <div class="teclas">
+          <button disabled>⬆️</button><br />
+          <button disabled>⬅️</button>
+          <button disabled>⬇️</button>
+          <button disabled>➡️</button>
+          <br /><br />
+          <span>Teclas: <b>W A S D</b></span>
+        </div>
+        <div>
+          <h3>Log</h3>
+          <pre class="log" id="log"></pre>
+        </div>
+      </div>
+      <div class="coluna-direita">
+        <div class="info-box">
+          <h3>Informações</h3>
+          <p>
+            Aqui você pode colocar status do carrinho, logs do servidor, etc.
+          </p>
+        </div>
+        <div class="video-box">
+          <h3>Vídeo Recebido</h3>
+          <img id="video" src="/video_feed" width="400" />
+        </div>
+      </div>
+    </div>
+    <script>
+      // Polling simples para atualizar o log a cada 1s
+      function atualizarLog() {
+        fetch('/log_comandos')
+          .then(resp => resp.text())
+          .then(txt => {
+            document.getElementById('log').textContent = txt;
+          });
+      }
+      setInterval(atualizarLog, 1000);
+      atualizarLog();
+    </script>
+  </body>
+</html>

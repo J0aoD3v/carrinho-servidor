@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Controle do Carrinho</title>
+    <style>
+      .container {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+      }
+      .painel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .teclas {
+        font-size: 2em;
+        margin: 20px 0 0 0;
+      }
+      .log {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 300px;
+        height: 200px;
+        overflow-y: auto;
+      }
+      button {
+        font-size: 1.5em;
+        margin: 5px;
+      }
+      .coluna-direita {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+      .info-box {
+        border: 1px solid #aaa;
+        padding: 15px 20px;
+        width: 400px;
+        background: #f9f9f9;
+        text-align: center;
+      }
+      .video-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Controle do Carrinho</h2>
+    <div class="container">
+      <div class="painel">
+        <div class="teclas">
+          <button onclick="enviar('cima')">⬆️</button><br />
+          <button onclick="enviar('esquerda')">⬅️</button>
+          <button onclick="enviar('baixo')">⬇️</button>
+          <button onclick="enviar('direita')">➡️</button>
+          <br /><br />
+          <span>Ou use as teclas: <b>W A S D</b></span>
+        </div>
+        <div>
+          <h3>Log</h3>
+          <div class="log" id="log"></div>
+        </div>
+      </div>
+      <div class="coluna-direita">
+        <div class="info-box">
+          <h3>Informações</h3>
+          <p>
+            Aqui você pode colocar instruções, status do carrinho, dicas, etc.
+          </p>
+        </div>
+        <div class="video-box">
+          <h3>Sua Câmera</h3>
+          <img src="/video_feed" width="400" />
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "w") enviar("cima");
+        if (e.key === "a") enviar("esquerda");
+        if (e.key === "s") enviar("baixo");
+        if (e.key === "d") enviar("direita");
+      });
+
+      function enviar(cmd) {
+        fetch("/comando", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ cmd }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("log").innerHTML = data.log
+              .reverse()
+              .join("<br>");
+          });
+      }
+    </script>
+  </body>
+</html>
