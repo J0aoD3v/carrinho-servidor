@@ -20,8 +20,8 @@ carrinho-servidor/
 
 ### Descrição
 
-- `client-side/`: Código do cliente (Windows ou Ubuntu/Linux)
-- `server-side/`: Código do servidor (Ubuntu/Linux)
+- `client-side/`: Código do cliente
+- `server-side/`: Código do servidor
 - `README.md`: Documentação
 
 ---
@@ -66,8 +66,6 @@ cd carrinho-servidor
 
 ### Servidor (Windows ou Ubuntu/Linux)
 
-No diretório `server-side`:
-
 - Windows (PowerShell):
   ```powershell
   python server-side/servidor.py
@@ -78,8 +76,6 @@ No diretório `server-side`:
   ```
 
 ### Cliente (Windows ou Ubuntu/Linux)
-
-No diretório `client-side`:
 
 - Windows (PowerShell):
   ```powershell
