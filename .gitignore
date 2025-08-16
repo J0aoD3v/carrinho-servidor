@@ -1,0 +1,21 @@
+# Obsidian
+.obsidian/
+.trash/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Keep performance optimization files
+!.excalidraw/
+.excalidraw/*.tmp
